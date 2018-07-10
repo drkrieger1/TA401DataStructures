@@ -1,14 +1,14 @@
-﻿using Graph.Classes;
 using System;
+using Graph.Classes;
+using Xunit;
 
-namespace Graph
+namespace XUnitTestGraphs
 {
-    class Program
+    public class UnitTest1
     {
-        static void Main(string[] args)
+        [Fact]
+        public void SizeReturnsTheCorrectNumberOfNodes()
         {
-            Console.WriteLine("Hello World!");
-
             Node node1 = new Node("a");
             Node node2 = new Node("b");
             Node node3 = new Node("c");
@@ -20,8 +20,7 @@ namespace Graph
 
             int result = myGraph.Size(myGraph.Root);
 
-            Console.WriteLine(result);
-            Console.Read();
+            Assert.Equal(3, result);
         }
     }
 }

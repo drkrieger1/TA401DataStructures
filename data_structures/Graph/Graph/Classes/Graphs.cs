@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Graph.Classes
 {
-    class Graphs
+    public class Graphs
     {   
         //Not needed -- just keeping a refrance of the first node
         public Node Root { get; set; }
@@ -47,6 +47,11 @@ namespace Graph.Classes
                     }
                 }
             }
+            //Reseting visited to false
+            foreach (Node node in order)
+            {
+                node.Visited = false;
+            }
             return order;       
         }
 
@@ -78,9 +83,17 @@ namespace Graph.Classes
                 {
                     if (!child.Visited)
                     {
+                        child.Visited = true;
                         breadth.Enqueue(child);
+
                     }
                 }
+            }
+            
+            //Reseting visited to false
+            foreach(Node node in order)
+            {
+                node.Visited = false;
             }
             return order;
         }
