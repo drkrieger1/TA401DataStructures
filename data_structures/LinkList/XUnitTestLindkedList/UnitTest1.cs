@@ -7,7 +7,7 @@ namespace XUnitTestLindkedList
     public class LinkdListUnitTest
     {
         [Fact]
-        public void LinkedListHeadPointerIsNull()
+        public void LinkedListHeadPointerIsNullOnCreate()
         {
             //Arange
 
@@ -18,7 +18,25 @@ namespace XUnitTestLindkedList
             Assert.Null(testList.Head);
         }
 
+        [Theory]
+        [InlineData(1)]
+        [InlineData(200)]
+        [InlineData(3000)]
+        public void CanAddNodeToHead(int input)
+        {
+            //Arange
+            LinkdList testList = new LinkdList();
+            Node inputNode = new Node(input);
+
+            //Act
+            testList.AddHead(inputNode);
+
+            //Assert
+            Assert.Equal(input, testList.Head.Value);
+        }
+
     }
+    //Node Unit Testing
     public class NodeUnitTest
     {
         [Theory]
