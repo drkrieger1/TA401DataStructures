@@ -11,10 +11,11 @@ namespace LinkList
         //Pointer to the next node
         public Node Next { get; set; }
 
-        //Constructore for Node class
+        //Constructor for Node class
         public Node(int value)
         {
             Value = value;
+            Next = null;
         }
     }
 }
